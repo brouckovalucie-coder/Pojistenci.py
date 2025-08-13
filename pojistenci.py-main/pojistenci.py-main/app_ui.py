@@ -38,6 +38,9 @@ class AppUI:
             else:
                 print("Tento údaj nesmí být prázdný!")
 
+    def pause(self):
+        input("\nData byla uložena. Pokračujte stisknutím tlačítka enter...")
+
     def add_person_ui(self):
         print("\nZadejte údaje pojištěného:")
         first_name = self.input_nonempty("Jméno: ")
@@ -53,6 +56,7 @@ class AppUI:
         person = InsuredPerson(first_name, last_name, age, phone)
         self.register.add_person(person)
         print("Pojištěný byl úspěšně přidán.")
+        self.pause()
 
     def list_all_ui(self):
         print("\nSeznam všech pojištěných:")
@@ -62,6 +66,7 @@ class AppUI:
                 print(person)
         else:
             print("Žádní pojištění nejsou evidováni.")
+        self.pause()
 
     def find_person_ui(self):
         print("\nZadejte jméno a příjmení hledaného pojištěného:")
@@ -74,3 +79,5 @@ class AppUI:
                 print(person)
         else:
             print("Pojištěný nebyl nalezen.")
+        self.pause()
+
